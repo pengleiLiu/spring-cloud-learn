@@ -1,0 +1,25 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/pengleiLiu/config-repo-demo
+          search-paths: /
+          skipSslValidation: true
+        overrides:
+          info.name: lpl
+          info.age: 25
+  # 安全保护啊
+  security:
+    user:
+      name: server-config
+      password: 5f5899ab-1243-4933-adc2-2252362b06b3
+# 配置中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka
