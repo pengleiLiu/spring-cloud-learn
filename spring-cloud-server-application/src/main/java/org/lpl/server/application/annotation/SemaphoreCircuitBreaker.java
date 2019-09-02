@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)//标注方法
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface SemaphoreCicuitBreaker {
+public @interface SemaphoreCircuitBreaker {
 
   /**
    * 信号量

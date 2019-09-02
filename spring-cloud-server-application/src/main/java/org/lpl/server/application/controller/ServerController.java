@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-import org.lpl.server.application.annotation.SemaphoreCicuitBreaker;
+import org.lpl.server.application.annotation.SemaphoreCircuitBreaker;
 import org.lpl.server.application.annotation.TimeOutCircuitBreaker;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -61,8 +61,11 @@ public class ServerController {
     return doRequest(message);
   }
 
+  /**
+   * semaphore 实现限流熔断
+   */
   @GetMapping("advanced/say3")
-  @SemaphoreCicuitBreaker(1)
+  @SemaphoreCircuitBreaker(1)
   public String advancedSay3InSemaphore(@RequestParam String message) throws Exception {
     return doRequest(message);
   }

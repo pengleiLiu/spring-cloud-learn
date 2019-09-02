@@ -11,7 +11,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.lpl.server.application.annotation.SemaphoreCicuitBreaker;
+import org.lpl.server.application.annotation.SemaphoreCircuitBreaker;
 import org.lpl.server.application.annotation.TimeOutCircuitBreaker;
 import org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint;
 import org.springframework.stereotype.Component;
@@ -58,11 +58,11 @@ public class ServerControllerAspect {
   }
 
   @Around("execution(* org.lpl.server.application.controller.ServerController."
-      + "advancedSay3InSemaphore(..)) && args(message) && @annotation(semaphoreCicuitBreaker)")
-  public Object semaphoreAdcanceSay(ProceedingJoinPoint point, String message,
-      SemaphoreCicuitBreaker semaphoreCicuitBreaker) throws Throwable {
+      + "advancedSay3InSemaphore(..)) && args(message) && @annotation(semaphoreCircuitBreaker)")
+  public Object semaphoreAdvanceSay(ProceedingJoinPoint point, String message,
+      SemaphoreCircuitBreaker semaphoreCircuitBreaker) throws Throwable {
 
-    int value = semaphoreCicuitBreaker.value();
+    int value = semaphoreCircuitBreaker.value();
     if (semaphore == null) {
       semaphore = new Semaphore(value);
     }
