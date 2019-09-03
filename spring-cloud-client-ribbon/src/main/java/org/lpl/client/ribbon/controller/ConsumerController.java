@@ -1,7 +1,7 @@
 package org.lpl.client.ribbon.controller;
 
-import org.lpl.client.ribbon.service.ConsumerService;
-import org.lpl.client.ribbon.service.ConsumerServiceCommand;
+import org.lpl.client.ribbon.service.ribbon.ConsumerService;
+import org.lpl.client.ribbon.service.hystrix.ConsumerServiceCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package org.lpl.client.ribbon.service;
+package org.lpl.client.ribbon.service.ribbon;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;

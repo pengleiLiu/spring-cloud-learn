@@ -1,4 +1,4 @@
-package org.lpl.client.ribbon.service;
+package org.lpl.client.ribbon.service.hystrix;
 
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 /**
- *
  * @author penglei.liu
  * @version 1.0
  * @date 2019-09-02 18:25
@@ -18,7 +17,9 @@ public class ConsumerServiceCommand extends HystrixCommand<String> {
 
   private RestTemplate restTemplate;
 
-
+  /**
+   * 定义分组、线程组
+   */
   public ConsumerServiceCommand(RestTemplate restTemplate) {
     super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("consumerServiceGroupKey"))
         .andCommandKey(HystrixCommandKey.Factory.asKey("consumerServiceCommandKey"))
