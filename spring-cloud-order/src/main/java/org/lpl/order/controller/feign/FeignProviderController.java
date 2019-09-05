@@ -14,6 +14,7 @@ public class FeignProviderController implements OrderService {
 
   @Override
   public String sendMsg() {
+    System.out.println(1);
     return "hello";
   }
 
