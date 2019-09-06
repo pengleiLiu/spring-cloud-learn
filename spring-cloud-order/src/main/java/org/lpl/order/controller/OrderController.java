@@ -24,4 +24,14 @@ public class OrderController {
 
     return body + "lpl";
   }
+
+  @RequestMapping("v1/receiver")
+  public String receiverV1() {
+    return "v1/receiver";
+  }
+
+  @RequestMapping("v2/receiver")
+  public String receiverV2() {
+    return "v2/receiver";
+  }
 }
