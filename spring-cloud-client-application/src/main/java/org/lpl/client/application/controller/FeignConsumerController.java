@@ -1,7 +1,8 @@
 package org.lpl.client.application.controller;
 
+import org.lpl.client.application.bean.User;
+import org.lpl.client.application.service.feign.FeignConsumerService;
 import org.lpl.client.application.service.feign.FeignHiConsumerService;
-import org.lpl.feignapi.bean.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,11 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class FeignConsumerController {
 
-//  @Autowired
-//  private FeignConsumerService feignConsumerService;
-
   @Autowired
-  private FeignHiConsumerService feignConsumerService;
+  private FeignConsumerService feignConsumerService;
+
+//  @Autowired
+//  private FeignHiConsumerService feignConsumerService;
 
   @RequestMapping("/feignConsumer")
   public String feignConsumer() {

@@ -11,6 +11,4 @@ public class SpringCloudUserApplication {
   public static void main(String[] args) {
     SpringApplication.run(SpringCloudUserApplication.class, args);
   }
-
-
 }

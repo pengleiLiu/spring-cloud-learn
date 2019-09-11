@@ -10,9 +10,13 @@ spring:
           uri: https://github.com/pengleiLiu/config-repo-demo
           search-paths: /
           skipSslValidation: true
-        overrides:
-          info.name: lpl
-          info.age: 25
+
+    bus:
+      trace:
+        enabled: true
+#        overrides:
+#          info.name: lpl
+#          info.age: 25
   # 安全保护啊
   security:
     user:
@@ -23,3 +27,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:1111/eureka
+
+# 整合Spring Cloud Bus
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
