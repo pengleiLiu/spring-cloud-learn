@@ -8,17 +8,17 @@
   <artifactId>spring-cloud-learn</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>spring-cloud-learn</name>
-  <description>springcloud学习工程</description>
+  <description>spring-cloud学习工程</description>
 
   <modules>
     <module>server-eureka</module>
     <module>spring-cloud-client-application</module>
-    <!--<module>spring-cloud-client-ribbon</module>-->
     <module>spring-cloud-order</module>
     <module>spring-cloud-server-application</module>
     <module>spring-cloud-user</module>
     <module>spring-cloud-zuul</module>
     <module>spring-cloud-config</module>
+    <module>spring-cloud-stream</module>
   </modules>
   <packaging>pom</packaging>
 
