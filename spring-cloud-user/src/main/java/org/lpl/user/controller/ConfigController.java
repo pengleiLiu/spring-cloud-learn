@@ -21,9 +21,18 @@ public class ConfigController {
   @Value("${info.age}")
   private String age;
 
+  @Value("${my.name}")
+  private String myName;
+
 
   @RequestMapping("name")
   public String health() {
     return "[config.name]:" + name + "age:" + age;
   }
+
+  @RequestMapping("getName")
+  public String getMyName() {
+    return myName;
+  }
+
 }
