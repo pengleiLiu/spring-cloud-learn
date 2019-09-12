@@ -10,9 +10,9 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>org.lpl</groupId>
-  <artifactId>springcloud-conifg</artifactId>
+  <artifactId>spring-cloud-config</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>springcloud-conifg</name>
+  <name>spring-cloud-config</name>
   <description>Demo project for Spring Boot</description>
 
   <properties>
