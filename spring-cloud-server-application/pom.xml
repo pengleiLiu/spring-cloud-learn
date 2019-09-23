@@ -53,34 +53,16 @@
     </dependency>
 
     <dependency>
-      <groupId>org.jxls</groupId>
-      <artifactId>jxls</artifactId>
-      <version>2.4.5</version>
-      <exclusions>
-        <exclusion>
-          <groupId>ch.qos.logback</groupId>
-          <artifactId>logback-core</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.jxls</groupId>
-      <artifactId>jxls-reader</artifactId>
-      <version>2.0.5</version>
-    </dependency>
-    <dependency>
-      <groupId>org.jxls</groupId>
-      <artifactId>jxls-poi</artifactId>
-      <version>1.0.16</version>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.59</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/com.baidu.aip/java-sdk -->
     <dependency>
-      <groupId>com.baidu.aip</groupId>
-      <artifactId>java-sdk</artifactId>
-      <version>4.11.3</version>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+      <version>2.1.2.RELEASE</version>
     </dependency>
-
   </dependencies>
 
   <dependencyManagement>

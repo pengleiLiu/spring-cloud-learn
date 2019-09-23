@@ -2,7 +2,6 @@ package org.lpl.client.application.controller;
 
 import org.lpl.client.application.bean.User;
 import org.lpl.client.application.service.feign.FeignConsumerService;
-import org.lpl.client.application.service.feign.FeignHiConsumerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

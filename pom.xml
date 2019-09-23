@@ -19,6 +19,7 @@
     <module>spring-cloud-zuul</module>
     <module>spring-cloud-config</module>
     <module>spring-cloud-stream</module>
+    <module>spring-cloud-stream-binder-http</module>
   </modules>
   <packaging>pom</packaging>
 

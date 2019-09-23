@@ -65,10 +65,10 @@ public class CloudAccountUtils {
 //   */
 //  private static final String VERFITY_CODE_NAME_IDCARD_BANK_ERROR = "10108";
 
-  private static final String dealer_id = "24459062";
+  private static final String dealer_id = "";
 
-  private static final String thirdsKey = "RmuIwVUDKV3zuTp07xR4e60g";
-  private static final String appKey = "6C25pA3d9WLo91z5ppAxEv1oIj3DSG1I";
+  private static final String thirdsKey = "";
+  private static final String appKey = "";
 
   private static final int TIMEOUT = 10;
 
@@ -84,7 +84,7 @@ public class CloudAccountUtils {
   public static void idCardAuth() throws Exception {
 
     String idCard = "321002197305030914";
-    String userName = "张三1";
+    String userName = "张三";
 
     Map<String, String> paramsMap = new HashMap<>();
     paramsMap.put("id_card", idCard);
@@ -93,7 +93,7 @@ public class CloudAccountUtils {
     FormBody formBody = createFormBody(JSONObject.toJSONString(paramsMap));
 
     Headers headers = new Builder()
-        .add("dealer-id", "24459062")
+        .add("dealer-id", dealer_id)
         .add("request-id", UUID.randomUUID().toString().replace("-", ""))
         .build();
 
@@ -113,9 +113,9 @@ public class CloudAccountUtils {
    * 银行卡三要素校验
    */
   public static void bankCardAuth() throws Exception {
-    String idCard = "130684199402142272";
-    String userName = "刘朋磊1";
-    String bankCard = "6217000130015406860";
+    String idCard = "132437197503020220";
+    String userName = "张玉娜";
+    String bankCard = "6217681806068907";
 
     Map<String, String> paramsMap = new HashMap<>();
     paramsMap.put("id_card", idCard);
@@ -126,7 +126,7 @@ public class CloudAccountUtils {
 
     String requestId = UUID.randomUUID().toString().replace("-", "");
     Headers headers = new Builder()
-        .add(HEADER_KEY_DEALER_ID, "24459062")
+        .add(HEADER_KEY_DEALER_ID, dealer_id)
         .add(HEADER_KEY_REQUEST_ID, requestId)
         .build();
 
