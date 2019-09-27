@@ -12,4 +12,7 @@ public interface CustomerMessageReceiver {
 
   @Input("lpl-stream")
   SubscribableChannel lplStream();
+
+  @Input("test-http")
+  SubscribableChannel httpChannel();
 }

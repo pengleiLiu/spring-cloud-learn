@@ -13,4 +13,7 @@ public interface CustomerMessage {
   @Output("lpl-stream")// Channel name
   MessageChannel lplStream();
 
+  @Output("test-http")// Channel name
+  MessageChannel http();
+
 }

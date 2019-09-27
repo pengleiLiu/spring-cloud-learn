@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.GenericMessage;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,4 +35,11 @@ public class MessageController {
     messageChannel.send(new GenericMessage<>(message, headers));
   }
 
+
+  @GetMapping("/stream/send/http")
+  public boolean streamSendToHttp(@RequestParam String message) {
+    // 获取 MessageChannel
+    MessageChannel messageChannel = customerMessage.http();
+    return messageChannel.send(new GenericMessage(message));
+  }
 }

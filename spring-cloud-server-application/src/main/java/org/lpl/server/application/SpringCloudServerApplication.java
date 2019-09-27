@@ -16,17 +16,17 @@ import org.springframework.messaging.SubscribableChannel;
 @EnableCircuitBreaker
 @EnableDiscoveryClient
 @SpringBootApplication
-//@EnableBinding(CustomerMessageReceiver.class)//激活并引入 SimpleMessageReceiver
+@EnableBinding(CustomerMessageReceiver.class)//激活并引入 SimpleMessageReceiver
 public class SpringCloudServerApplication {
 
   public static void main(String[] args) {
     SpringApplication.run(SpringCloudServerApplication.class, args);
   }
 
-  //@Autowired
+  @Autowired
   private CustomerMessageReceiver customerMessageReceiver;
 
-  //@PostConstruct
+  @PostConstruct
   public void init() {  // 接口编程
     // 获取 SubscribableChannel
     SubscribableChannel subscribableChannel = customerMessageReceiver.lplStream();
@@ -48,4 +48,8 @@ public class SpringCloudServerApplication {
     System.out.println("onMessage(byte[]): " + new String(data));
   }
 
+  @StreamListener("test-http")  // Spring Cloud Stream 注解驱动
+  public void onMessageFromHttp(byte[] data) {
+    System.out.println("HTTP - onMessage(byte[]): " + new String(data));
+  }
 }
