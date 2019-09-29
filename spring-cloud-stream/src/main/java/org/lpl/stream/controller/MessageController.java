@@ -20,9 +20,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MessageController {
 
-  @Autowired
   private CustomerMessage customerMessage;
 
+  @Autowired
+  public void setCustomerMessage(CustomerMessage customerMessage) {
+    this.customerMessage = customerMessage;
+  }
 
   @RequestMapping("stream/send")
   public void sendMsg(@RequestParam String message) {
@@ -39,7 +42,7 @@ public class MessageController {
   @GetMapping("/stream/send/http")
   public boolean streamSendToHttp(@RequestParam String message) {
     // 获取 MessageChannel
-    MessageChannel messageChannel = customerMessage.http();
+    MessageChannel messageChannel = customerMessage.testHttp();
     return messageChannel.send(new GenericMessage(message));
   }
 }

@@ -18,5 +18,4 @@ public class HttpMessageChannelWebAutoConfiguration {
   public MessageReceiverController messageReceiverController() {
     return new MessageReceiverController();
   }
-
 }

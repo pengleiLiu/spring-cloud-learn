@@ -4,6 +4,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Random;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.stream.binder.Binder;
@@ -26,8 +27,6 @@ public class HttpMessageChannelBinder implements
 
   private String TARGET_APPNAME = "spring-cloud-server";
 
-  private RestTemplate restTemplate;
-
   private final DiscoveryClient discoveryClient;
 
   private final MessageReceiverController messageReceiverController;
@@ -39,12 +38,18 @@ public class HttpMessageChannelBinder implements
   }
 
   public Binding<MessageChannel> bindConsumer(String name, String group,
-      MessageChannel inboundBindTarget, ConsumerProperties consumerProperties) {
+      MessageChannel inputChannel, ConsumerProperties consumerProperties) {
+    //TODO 如果不进行判断会被最后一个MessageChannel覆盖
+    if (name.equals("test-http")) {
+      messageReceiverController.setInputChannel(inputChannel);
+    }
     return null;
   }
 
   public Binding<MessageChannel> bindProducer(String name, MessageChannel outputChannel,
       ProducerProperties producerProperties) {
+
+    RestTemplate restTemplate = new RestTemplate();
 
     SubscribableChannel subscribableChannel = (SubscribableChannel) outputChannel;
 

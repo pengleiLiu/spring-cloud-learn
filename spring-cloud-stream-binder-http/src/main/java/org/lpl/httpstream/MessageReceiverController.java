@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.GenericMessage;
 
@@ -25,6 +27,7 @@ public class MessageReceiverController implements Controller {
   public static final String ENDPOINT_URI = "/message/receive";
 
   private MessageChannel inputChannel;
+
 
   @PostMapping(ENDPOINT_URI)
   public String receive(HttpServletRequest request) throws IOException {

@@ -29,7 +29,7 @@ public class SpringCloudServerApplication {
   @PostConstruct
   public void init() {  // 接口编程
     // 获取 SubscribableChannel
-    SubscribableChannel subscribableChannel = customerMessageReceiver.lplStream();
+    SubscribableChannel subscribableChannel = customerMessageReceiver.lplStreamChannel();
     subscribableChannel.subscribe(message -> {
       MessageHeaders headers = message.getHeaders();
       String encoding = (String) headers.get("charset-encoding");
@@ -43,13 +43,15 @@ public class SpringCloudServerApplication {
     });
   }
 
-  @StreamListener("lpl-stream")
-  public void onMessage(byte[] data) {
-    System.out.println("onMessage(byte[]): " + new String(data));
-  }
 
   @StreamListener("test-http")  // Spring Cloud Stream 注解驱动
   public void onMessageFromHttp(byte[] data) {
     System.out.println("HTTP - onMessage(byte[]): " + new String(data));
   }
+
+  @StreamListener("lpl-stream")
+  public void onMessage(byte[] data) {
+    System.out.println("onMessage(byte[]): " + new String(data));
+  }
+
 }

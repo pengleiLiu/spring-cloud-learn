@@ -11,8 +11,8 @@ import org.springframework.messaging.SubscribableChannel;
 public interface CustomerMessageReceiver {
 
   @Input("lpl-stream")
-  SubscribableChannel lplStream();
+  SubscribableChannel lplStreamChannel();
 
   @Input("test-http")
-  SubscribableChannel httpChannel();
+  SubscribableChannel testHttpChannel();
 }

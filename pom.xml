@@ -20,6 +20,7 @@
     <module>spring-cloud-config</module>
     <module>spring-cloud-stream</module>
     <module>spring-cloud-stream-binder-http</module>
+    <module>spring-cloud-stream-binder-rocketmq</module>
   </modules>
   <packaging>pom</packaging>
 
