@@ -30,7 +30,7 @@ public class MessageController {
   @RequestMapping("stream/send")
   public void sendMsg(@RequestParam String message) {
 
-    MessageChannel messageChannel = customerMessage.lplStream();
+    MessageChannel messageChannel = customerMessage.rocketMQ();
     Map<String, Object> headers = new HashMap<>();
     headers.put("charset-encoding", "UTF-8");
     headers.put("content-type", MediaType.TEXT_PLAIN_VALUE);
@@ -38,11 +38,17 @@ public class MessageController {
     messageChannel.send(new GenericMessage<>(message, headers));
   }
 
-
   @GetMapping("/stream/send/http")
   public boolean streamSendToHttp(@RequestParam String message) {
     // 获取 MessageChannel
-    MessageChannel messageChannel = customerMessage.testHttp();
-    return messageChannel.send(new GenericMessage(message));
+    MessageChannel messageChannel = customerMessage.rocketMQ();
+    return messageChannel.send(new GenericMessage<>(message));
+  }
+
+  @GetMapping("/stream/send/rocketmq")
+  public boolean streamSendToRockectMQ(@RequestParam String message) {
+
+    MessageChannel messageChannel = customerMessage.rocketMQ();
+    return messageChannel.send(new GenericMessage<>(message));
   }
 }

@@ -12,6 +12,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class HttpMessageChannelBinderConfiguration {
 
+
+
   @Bean
   public HttpMessageChannelBinder httpMessageChannelBinder(DiscoveryClient discoveryClient,
       MessageReceiverController controller) {

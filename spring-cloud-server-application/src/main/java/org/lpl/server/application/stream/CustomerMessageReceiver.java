@@ -10,9 +10,12 @@ import org.springframework.messaging.SubscribableChannel;
  **/
 public interface CustomerMessageReceiver {
 
-  @Input("lpl-stream")
-  SubscribableChannel lplStreamChannel();
+//  @Input("lpl-stream")
+//  SubscribableChannel lplStreamChannel();
+//
+//  @Input("test-http")
+//  SubscribableChannel testHttpChannel();
 
-  @Input("test-http")
-  SubscribableChannel testHttpChannel();
+  @Input("test-rocketmq")
+  SubscribableChannel rocketMQChannel();
 }

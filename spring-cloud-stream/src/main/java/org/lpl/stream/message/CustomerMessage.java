@@ -10,9 +10,12 @@ import org.springframework.messaging.MessageChannel;
  **/
 public interface CustomerMessage {
 
-  @Output("test-http")// Channel name
-  MessageChannel testHttp(); //destination
+//  @Output("lpl-stream")// Channel name
+//  MessageChannel lplStream();
+//
+//  @Output("test-http")// Channel name
+//  MessageChannel testHttp(); //destination
 
-  @Output("lpl-stream")// Channel name
-  MessageChannel lplStream();
+  @Output("test-rocketmq")
+  MessageChannel rocketMQ();
 }

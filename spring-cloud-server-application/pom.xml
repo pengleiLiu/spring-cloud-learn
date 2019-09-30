@@ -70,6 +70,12 @@
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.lpl.springcloud</groupId>
+      <artifactId>spring-cloud-stream-binder-rocketmq</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+
   </dependencies>
 
   <dependencyManagement>

@@ -11,14 +11,15 @@ import org.apache.rocketmq.common.message.MessageExt;
 public class RocketMQConsumerDemo {
 
   public static void main(String[] args) throws Exception {
-    DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("test-group");
+
+    DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("lpl-group");
     consumer.setNamesrvAddr("localhost:9876");
     consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
 
 //        //set to broadcast mode
 //        consumer.setMessageModel(MessageModel.BROADCASTING);
 
-    consumer.subscribe("TopicTest-1", "TagA");
+    consumer.subscribe("Topictest-lpl", "TagA");
 
     consumer.registerMessageListener(new MessageListenerConcurrently() {
 
