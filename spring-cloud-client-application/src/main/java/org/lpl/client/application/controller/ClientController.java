@@ -5,8 +5,10 @@ import com.netflix.loadbalancer.RandomRule;
 import java.util.Arrays;
 import java.util.Collection;
 import org.lpl.client.application.annotation.CustomLoadBalanced;
+import org.lpl.client.application.loadbalance.CustomerRequestInterceptor;
 import org.lpl.client.application.loadbalance.LoadBalancedRequestInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
@@ -34,6 +36,8 @@ public class ClientController {
 
   @RequestMapping("/client/{serviceName}/message")
   public String invokeMethod(@PathVariable String serviceName, @RequestParam String message) {
+
+//    return restTemplate.getForObject("http://qa-credits.xingshulin.com/casefolder-credits/balance/wallet/lock/status",String.class);
     return restTemplate
         .getForObject("/" + serviceName + "/message?message=" + message, String.class);
   }
@@ -62,8 +66,10 @@ public class ClientController {
 
   @LoadBalanced
   @Bean
-  private RestTemplate rbRestTemplate() {
-    return new RestTemplate();
+  private RestTemplate rbRestTemplate(RestTemplateBuilder builder) {
+    RestTemplate build = builder.interceptors(new CustomerRequestInterceptor()).build();
+    return build;
+    //return new RestTemplate().setInterceptors();
   }
 
   @Bean

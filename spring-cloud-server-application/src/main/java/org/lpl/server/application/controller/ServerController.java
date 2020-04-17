@@ -108,4 +108,11 @@ public class ServerController {
   public String errorContent(String message) {
     return "Fault";
   }
+
+
+
+  @GetMapping("/getMessage")
+  public String getMessage(){
+    return "123";
+  }
 }
